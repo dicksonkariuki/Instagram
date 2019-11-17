@@ -22,3 +22,25 @@
 #search[type=text]:focus {
     width: 100%;
 }
+#content{
+    margin-top: 100px;
+    background-color: whitesmoke;
+}
+
+#nav{
+    border-bottom: 5px;
+    border-bottom-color: grey;
+    color:rgb(255, 255, 255);
+}
+.card-header{
+    background-color:white;
+}
+#footer{
+    background-color: white;
+}
+#icon{
+    margin-right: 70px;
+}
+#icon a{
+    color:black;
+}
