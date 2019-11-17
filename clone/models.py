@@ -17,3 +17,8 @@ class Image(models.Model):
     def save_image(self):
         self.save()
 
+class Comment(models.Model):
+    name=models.CharField(max_length=25)
+    user=models.ForeignKey(User,null=True)
+    image=models.ForeignKey(image,related_name='comment')
+
