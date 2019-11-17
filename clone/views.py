@@ -26,5 +26,19 @@ def profile(request, username):
 def home_page(request):
     image = Image.objects.all()
     return render(request, 'main_pages/home.html',{'image':image})
+@login_required(login_url='/accounts/login/')
+def edit(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            edit = form.save(commit=False)
+            edit.user = request.user
+            edit.save()
+            return redirect('edit_profile')
+    else:
+        form = ProfileForm()
+    return render(request, 'main_pages/edit_profile.html', {'form':form})
+    '''
+    logs out current user from account
 
 # Create your views here.
