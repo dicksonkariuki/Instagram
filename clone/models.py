@@ -64,3 +64,5 @@ class Comment(models.Model):
     user=models.ForeignKey(User,null=True)
     image=models.ForeignKey(Image,related_name='comment')
 
+    def __str__(self):
+        return self.name
