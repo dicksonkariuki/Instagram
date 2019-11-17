@@ -1,8 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
+import datetime as dt
 
 class Profile(models.Model):
     profile_photo =models.ImageField(upload_to ='profile/')
     bio =models.CharField(max_length=50)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    def save_profile(self):
+        self.save()
 
 
 
@@ -13,6 +19,7 @@ class Image(models.Model):
     profile=models.ForeignKey(Profile,on_delete=models.CASCADE)
     likes=models.CharField(max_length=150)
     comments=models.CharField(max_length=100)
+    user=models.ForeignKey(User,on_delete=models.CASCADE,blank=True)
 
     def save_image(self):
         self.save()
