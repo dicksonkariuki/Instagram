@@ -44,3 +44,78 @@
 #icon a{
     color:black;
 }
+#login{
+    background-color: white;
+    align-items: center;
+    margin-top: 30px;
+    font-family: 'Cookie', cursive;
+    font-size:20px;
+}
+#top{
+    margin-top: 40px;
+}
+#no{
+    margin-top: 20px;
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+#on{
+    margin-top: 20px;
+    text-align: center;
+}
+#app{
+    margin-top: 30px;
+}
+
+.form-text{
+    type: hidden;
+    display: none;
+    visibility: hidden;
+}
+#user{
+    margin-top: 20px;
+    box-shadow: 12px;
+    margin-left: 100px;
+}
+#like{
+    /* margin-top:20px; */
+    margin-left: 10px;
+
+}
+.comnt{
+    margin-top: 1px;
+}
+#like a{
+    color:rgb(5, 5, 5);
+    margin-left: 10px;
+    
+    
+}
+
+:root {
+	font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Open Sans", Arial, sans-serif;
+	min-height: 100vh;
+	background-color: #fafafa;
+	color: #262626;
+	padding-bottom: 3rem;
+}
+
+img {
+	display: block;
+}
+
+.container {
+	max-width: 93.5rem;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
