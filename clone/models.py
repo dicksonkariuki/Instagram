@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime as dt
+from django.conf import settings
 
 class Profile(models.Model):
     profile_photo =models.ImageField(upload_to ='profile/')
