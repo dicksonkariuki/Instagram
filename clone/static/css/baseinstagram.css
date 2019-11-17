@@ -1,3 +1,24 @@
 #logo{
     margin-left: 200px;
 }
+#search[type=text] {
+    height:30px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: white;
+    background-image: url('../images/searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    background-size: 20px 20px;
+    background-position-y: 0px;
+}
+
+#search[type=text]:focus {
+    width: 100%;
+}
