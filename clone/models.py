@@ -13,6 +13,14 @@ class Profile(models.Model):
     def get_by_id(cls, id):
         details = Profile.objects.get(user = id)
         return details
+    @classmethod
+    def filter_by_id(cls, id):
+        details = Profile.objects.filter(user = id).first()
+        return details
+     @classmethod
+    def search_user(cls, name):
+        userprof = Profile.objects.filter(user__username__icontains = name)
+        return userprof
 
 
 
