@@ -61,7 +61,7 @@ class Image(models.Model):
         return identity
 class Comment(models.Model):
     name=models.CharField(max_length=25)
-    user=models.ForeignKey(User,null=True,default=None)
+    user=models.ForeignKey(User,default=None)
     image=models.ForeignKey(Image,related_name='comment')
 
     def __str__(self):
