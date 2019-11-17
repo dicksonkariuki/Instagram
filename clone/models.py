@@ -36,6 +36,11 @@ class Image(models.Model):
 
     def save_image(self):
         self.save()
+        
+     @classmethod
+    def get_by_id(cls,id):
+        image= Image.objects.get(user = id)
+        return image
 
 class Comment(models.Model):
     name=models.CharField(max_length=25)
