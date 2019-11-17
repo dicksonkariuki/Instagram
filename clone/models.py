@@ -4,7 +4,7 @@ import datetime as dt
 
 class Profile(models.Model):
     profile_photo =models.ImageField(upload_to ='profile/')
-    bio =models.CharField(max_length=50)
+    bio =models.CharField(max_length=50,null=false)
     user = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
 
     def save_profile(self):
