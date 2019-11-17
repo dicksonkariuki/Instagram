@@ -40,7 +40,19 @@ def edit(request):
     return render(request, 'main_pages/edit_profile.html', {'form':form})
     '''
     logs out current user from account
+    '''
 def logout(request):
-    return render(request, 'main_pages/home.html')
+    return render(request, 'all_pages/home.html')
+    '''
+    returns all images uploaded
+    '''
+def view_image(request):
+    image = Image.objects.all()
+    return render(request, 'main_pages/home.html',{"image":image})
+
+    '''
+    searching for profile
+    '''
+
 
 # Create your views here.
