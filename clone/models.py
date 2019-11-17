@@ -14,3 +14,6 @@ class Image(models.Model):
     likes=models.CharField(max_length=150)
     comments=models.CharField(max_length=100)
 
+    def save_image(self):
+        self.save()
+
