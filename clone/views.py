@@ -63,6 +63,19 @@ def search(request):
     else:
         message = 'Enter term to search'
         return render(request, 'main_pages/search.html', {'message':message})
+@login_required(login_url='/accounts/login')
+def upload_image(request):
+    if request.method == 'POST':
+        uploadform = ImageForm(request.POST, request.FILES)
+        if uploadform.is_valid():
+            upload = uploadform.save(commit=False)
+            upload.profile = request.user.profile
+            upload.save()
+            return redirect('profile', username=request.user)
+    else:
+        uploadform = ImageForm()
+    
+    return render(request, 'main_pages/profile.html', {'uploadform':uploadform})
 
 
 # Create your views here.
