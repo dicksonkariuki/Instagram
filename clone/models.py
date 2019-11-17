@@ -9,6 +9,10 @@ class Profile(models.Model):
 
     def save_profile(self):
         self.save()
+    @classmethod
+    def get_by_id(cls, id):
+        details = Profile.objects.get(user = id)
+        return details
 
 
 
@@ -20,6 +24,7 @@ class Image(models.Model):
     likes=models.CharField(max_length=150)
     comments=models.CharField(max_length=100)
     user=models.ForeignKey(User,on_delete=models.CASCADE,blank=True)
+    pub_date = models.DateTimeField(auto_now_add=True, null=True)
 
     def save_image(self):
         self.save()
@@ -27,5 +32,5 @@ class Image(models.Model):
 class Comment(models.Model):
     name=models.CharField(max_length=25)
     user=models.ForeignKey(User,null=True)
-    image=models.ForeignKey(image,related_name='comment')
+    image=models.ForeignKey(Image,related_name='comment')
 
