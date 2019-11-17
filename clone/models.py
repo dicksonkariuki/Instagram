@@ -36,10 +36,15 @@ class Image(models.Model):
 
     def save_image(self):
         self.save()
-        
+
      @classmethod
     def get_by_id(cls,id):
         image= Image.objects.get(user = id)
+        return image
+        
+    @classmethod
+    def get_images(cls, profile):
+        image = Image.objects.filter(Profile__pk = profile)
         return image
 
 class Comment(models.Model):
