@@ -18,14 +18,14 @@ def profile(request, username):
     images = Image.get_profile_images(profile.id)
     title = f'@{profile.username} Instagram photos and videos'
 
-    return render(request, 'main_pages/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images,'uploadform':uploadform,'image':image})
+    return render(request, 'all_pages/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images,'uploadform':uploadform,'image':image})
     '''
     editing user profile fillform & submission
     '''
 @login_required(login_url='/accounts/login/')
 def home_page(request):
     image = Image.objects.all()
-    return render(request, 'main_pages/home.html',{'image':image})
+    return render(request, 'all_pages/home.html',{'image':image})
 @login_required(login_url='/accounts/login/')
 def edit(request):
     if request.method == 'POST':
@@ -37,7 +37,7 @@ def edit(request):
             return redirect('edit_profile')
     else:
         form = ProfileForm()
-    return render(request, 'main_pages/edit_profile.html', {'form':form})
+    return render(request, 'all_pages/edit_profile.html', {'form':form})
     '''
     logs out current user from account
     '''
@@ -48,7 +48,7 @@ def logout(request):
     '''
 def view_image(request):
     image = Image.objects.all()
-    return render(request, 'main_pages/home.html',{"image":image})
+    return render(request, 'all_pages/home.html',{"image":image})
 
     '''
     searching for profile
@@ -59,10 +59,10 @@ def search(request):
         profile = Profile.search_user(search_term)
         message = f'{search_term}'
 
-        return render(request, 'main_pages/search.html',{'message':message, 'profile':profile})
+        return render(request, 'all_pages/search.html',{'message':message, 'profile':profile})
     else:
         message = 'Enter term to search'
-        return render(request, 'main_pages/search.html', {'message':message})
+        return render(request, 'all_pages/search.html', {'message':message})
 @login_required(login_url='/accounts/login')
 def upload_image(request):
     if request.method == 'POST':
@@ -75,7 +75,7 @@ def upload_image(request):
     else:
         uploadform = ImageForm()
     
-    return render(request, 'main_pages/profile.html', {'uploadform':uploadform})
+    return render(request, 'all_pages/profile.html', {'uploadform':uploadform})
 @login_required(login_url='/accounts/login')
 def one_image(request,image_id):
     image = get_object_or_404(Image, pk=image_id)
