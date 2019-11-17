@@ -40,5 +40,7 @@ def edit(request):
     return render(request, 'main_pages/edit_profile.html', {'form':form})
     '''
     logs out current user from account
+def logout(request):
+    return render(request, 'main_pages/home.html')
 
 # Create your views here.
