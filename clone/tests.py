@@ -12,3 +12,6 @@ class ImageTestClass(TestCase):
         self.post.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images)>0)
+class CommentTestClass(TestCase):
+    def setUp(self):
+        self.post=Comment(name='nice')
