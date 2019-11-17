@@ -41,12 +41,24 @@ class Image(models.Model):
     def get_by_id(cls,id):
         image= Image.objects.get(user = id)
         return image
-        
+
     @classmethod
     def get_images(cls, profile):
         image = Image.objects.filter(Profile__pk = profile)
         return image
+    @classmethod
+    def get_all_images(cls):
+        images = Image.objects.all()
+        return images
+    @classmethod
+    def get_profile_images(cls, profile):
+        images = Image.objects.filter(profile__pk = profile)
+        return images
 
+    @classmethod
+    def find_image_id(cls, id):
+        identity = Image.objects.get(pk=id)
+        return identity
 class Comment(models.Model):
     name=models.CharField(max_length=25)
     user=models.ForeignKey(User,null=True)
