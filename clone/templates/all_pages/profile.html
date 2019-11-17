@@ -71,3 +71,47 @@
     <!-- End of container -->
 
 </header>
+<main>
+
+        <div class="container">
+    
+            <div class="gallery">
+                    {% for data in images %}
+                <div class="gallery-item" tabindex="0">
+    
+                    <img src="{{data.Image.url}}" class="gallery-image"
+                        alt="" class="img-responsive">
+    
+                    <div class="gallery-item-info">
+    
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart"
+                                    aria-hidden="true"></i> 56</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment"
+                                    aria-hidden="true"></i> 2</li>
+                        </ul>
+    
+                    </div>
+    
+                </div>
+                {% endfor%}
+    
+            </div>
+            <!-- End of gallery -->
+    
+            <div class="loader"></div>
+    
+        </div>
+        <!-- End of container -->
+    
+    </main>
+    
+    <div class="modal" tabindex="-1" id="myModal{{user.id}}" role="dialog">
+        <div class="modal-dialog" role="document" id="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Share captured moments with Friends and Family all over.</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
