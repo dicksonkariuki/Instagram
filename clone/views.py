@@ -76,6 +76,18 @@ def upload_image(request):
         uploadform = ImageForm()
     
     return render(request, 'main_pages/profile.html', {'uploadform':uploadform})
+@login_required(login_url='/accounts/login')
+def one_image(request,image_id):
+    image = get_object_or_404(Image, pk=image_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user
+            comment.image = image
+            comment.save()
+    return redirect('home_page')
+
 
 
 # Create your views here.
