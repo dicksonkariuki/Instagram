@@ -8,10 +8,17 @@ class ImageTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.post,Image))
 
-    def test_save_image(self):
-        self.post.save_image()
-        images = Image.objects.all()
-        self.assertTrue(len(images)>0)
+    # def test_save_image(self):
+    #     self.post.save_image()
+    #     images = Image.objects.all()
+    #     self.assertTrue(len(images)>0)
 class CommentTestClass(TestCase):
     def setUp(self):
         self.post=Comment(name='nice')
+    def test_instance(self):
+        self.assertTrue(isinstance(self.post,Comment))
+class ProfileTestClass(TestCase):
+    def setUp(self):
+        self.post=Profile(bio='I am a software engineer')
+    def test_instance(self):
+        self.assertTrue(isinstance(self.post,Profile))
