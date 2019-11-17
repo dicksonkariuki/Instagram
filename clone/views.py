@@ -5,7 +5,26 @@ from django.contrib.auth.models import User
 from.forms import ProfileForm,ImageForm,CommentForm
 from django.contrib.auth.decorators import login_required
 
-def welcome(request):
-    return render(request,'welcome.html')
+@login_required(login_url='/accounts/login/')
+def profile(request, username):
+    uploadform= ImageForm
+    image = Image.objects.all()
+    profile = User.objects.get(username=username)
+    # print(profile.id)
+    try:
+        profile_details = Profile.get_by_id(profile.id)
+    except:
+        profile_details = Profile.filter_by_id(profile.id)
+    images = Image.get_profile_images(profile.id)
+    title = f'@{profile.username} Instagram photos and videos'
+
+    return render(request, 'main_pages/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images,'uploadform':uploadform,'image':image})
+    '''
+    editing user profile fillform & submission
+    '''
+@login_required(login_url='/accounts/login/')
+def home_page(request):
+    image = Image.objects.all()
+    return render(request, 'main_pages/home.html',{'image':image})
 
 # Create your views here.
