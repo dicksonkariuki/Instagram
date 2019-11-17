@@ -53,6 +53,16 @@ def view_image(request):
     '''
     searching for profile
     '''
+def search(request):
+    if 'search' in request.GET and request.GET['search']:
+        search_term = request.GET.get('search')
+        profile = Profile.search_user(search_term)
+        message = f'{search_term}'
+
+        return render(request, 'main_pages/search.html',{'message':message, 'profile':profile})
+    else:
+        message = 'Enter term to search'
+        return render(request, 'main_pages/search.html', {'message':message})
 
 
 # Create your views here.
