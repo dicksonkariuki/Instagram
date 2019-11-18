@@ -10,10 +10,8 @@
                 <div class="card-header">
                     <a href="profile/{{item.user.username}}/">
                         <div class="row">
-                            <div class="">
                                 <img src="{{item.profile.Profile_photo.url}}" alt="img" width="50px" height="50px"
                                     style="border-radius: 50%; margin-left: 10px;" class="img-responsive">
-                            </div>
                             <div class="col-md-2" style="margin-top: 10px;font-weight: bold;">
                                 <h4 class="card-title">{{item.user.username}}</h4>
                             </div>
@@ -71,10 +69,6 @@
 
 
             {% endfor %}
-        </div>
-
-        <div class="col-md-4 scroll">
-            <div class="card"></div>
         </div>
     </div>
 </div>

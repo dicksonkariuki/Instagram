@@ -69,7 +69,7 @@ def upload_image(request):
         uploadform = ImageForm(request.POST, request.FILES)
         if uploadform.is_valid():
             upload = uploadform.save(commit=False)
-            upload.profile = request.user.Profile
+            upload.profile = request.user.profile
             upload.save()
             return redirect('profile', username=request.user)
     else:
