@@ -463,7 +463,7 @@ h4 {
   font-family: "Cookie", cursive;
 }
 
-/* .heart {
+ .heart {
     background-color: white;
     display: block;
     padding-top: 4px;
@@ -478,9 +478,9 @@ h4 {
   .red {
     color: red;
   }
-   */
+
 /* footer styles */
-/* footer {
+ footer {
     padding: 20px;
     border-top: 1px solid lightgrey;
   }
@@ -514,7 +514,7 @@ h4 {
     .heart {
       width: calc(100% - 4px);
     }
-  }   */
+  }   
 #modal {
   background-color: rgba(0, 0, 0, 0.877);
 }
