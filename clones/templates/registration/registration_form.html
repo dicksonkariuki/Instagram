@@ -1,0 +1,37 @@
+{%extends "registration/base.html"%}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container-fluid ">
+    <div class="row">
+            <div class ="sm-md-6">
+                    <img src ="../../static/images/phones.png"> 
+                </div>
+        <div class ="col-md-6">
+                <div class="register">
+                <div class="registform">
+                        <div class="card">
+                            <form action="" method="post" class="ml-3 mr-3">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary btn-md btn-block" value="Sign Up">
+                                </div>
+                        </div>
+                        <div class="card mt-3">
+                            <p class="ml-5 mt-3">Have an account? <a href="{% url 'login' %}" class="ml-1">
+                                    Login</a></p>
+                        </div>
+                        <input type="hidden" name="next" value="{{next}}">
+
+                        
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            
+        </div>
+</div>
+<br>
+{% endblock %}

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'clone',
+    'clones',
     'bootstrap3',
+    'tinymce',
+    'crispy_forms',
+    'friendship',
     
     
 ]
@@ -81,9 +84,9 @@ WSGI_APPLICATION = 'instapro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'instaclone',
+        'NAME': 'instagrame',
         'USER':'moringa',
-        'PASSWORD':'dickson',
+        'PASSWORD':'kiriu300',
     }
 }
 
@@ -132,3 +135,6 @@ STATICFILES_DIRS=[
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+LOGIN_REDIRECT_URL = 'all_images'
+LOGIN_URL = 'login'
+django_heroku.settings(locals())
