@@ -132,12 +132,12 @@ def search(request):
     else:
         message = 'an empty search term!'
         return render(request, 'search.html', {'message':message})
-Create a view function:
+
 def follow(request,operation,id):
     user=User.objects.get(id=id)
     if operation=='follow':
         Follow.follow(request.user,user)
-        return redirect('homepage')
+        return redirect('home')
     elif operation=='unfollow':
         Follow.unfollow(request.user,user)
-        return redirect('homepage')
+        return redirect('home')
