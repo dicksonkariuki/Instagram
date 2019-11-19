@@ -12,6 +12,7 @@ urlpatterns= [
     url(r'^upload/$', views.profile_update, name='profile_update'),
     url(r'^upload/image/', views.post_image, name='post_image'),
     url(r'^search/', views.search, name='search'),
+    url(r'^follow/(?P<operation>.+)/(?P<id>\d+)', views.follow, name='follow'),
 
 ]
 
