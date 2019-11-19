@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'tinymce',
     'crispy_forms',
-    'friendship',
+   
     
     
 ]
