@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Image, Profile,Comment
+from .models import Image, Profile,Comment,Follow
 from django.contrib.auth.models import User
 from .forms import CommentForm, ImageForm, ProfileUpdateForm, UserUpdateForm, PostIMageForm, UserRegisterForm
 from django.contrib.auth.decorators import login_required
@@ -132,3 +132,12 @@ def search(request):
     else:
         message = 'an empty search term!'
         return render(request, 'search.html', {'message':message})
+Create a view function:
+def follow(request,operation,id):
+    user=User.objects.get(id=id)
+    if operation=='follow':
+        Follow.follow(request.user,user)
+        return redirect('homepage')
+    elif operation=='unfollow':
+        Follow.unfollow(request.user,user)
+        return redirect('homepage')
